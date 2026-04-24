@@ -9,7 +9,6 @@ public class PipesSpawner : MonoBehaviour
     {
         InvokeRepeating("SpawnPipes", 0.0f, 2.0f);
     }
-
     void SpawnPipes()
     {
         float randPozTop = Random.Range(0.0f, 10.0f);
