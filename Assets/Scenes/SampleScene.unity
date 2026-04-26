@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e7c0e231427ec4594b068e953a4615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
+  playerScore: {fileID: 11400000, guid: 70cfadc7258c44f4bb100969cd0ac239, type: 2}
   inputManager: {fileID: 429149657}
   jumpForce: 8
   groundDistance: 0.2
@@ -676,6 +677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipesSpawner
   pipePrefab: {fileID: 8822130909526770828, guid: fd3f9eb9f71ed75419865764d87be066, type: 3}
+  triggerPrefab: {fileID: 5540715430122488246, guid: b7a7c6b3a8ae6fd47bb7536d5f00e53f, type: 3}
+  playerScore: {fileID: 11400000, guid: 70cfadc7258c44f4bb100969cd0ac239, type: 2}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +863,10 @@ PrefabInstance:
     - target: {fileID: 2465776731185641070, guid: 391b4eba9585cc343a5125f95fef3a88, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399642647407366076, guid: 391b4eba9585cc343a5125f95fef3a88, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8932837990506848751, guid: 391b4eba9585cc343a5125f95fef3a88, type: 3}
       propertyPath: m_LocalPosition.x

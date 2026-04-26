@@ -7,6 +7,7 @@ TagManager:
   - object_pipe
   - object_player
   - trigger_destroy-pipe
+  - trigger_increase-score
   layers:
   - Default
   - TransparentFX

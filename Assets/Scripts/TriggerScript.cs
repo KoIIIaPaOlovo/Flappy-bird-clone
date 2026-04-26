@@ -1,9 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PipeScript : MonoBehaviour
+public class TriggerScript : MonoBehaviour
 {
+    
     private Rigidbody rb;
+    [SerializeField] private ScoreManager playerScore;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,15 +20,32 @@ public class PipeScript : MonoBehaviour
         rb.MovePosition(new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z));
         //rb.AddForce(new Vector3(-1,0,0).normalized * 5, ForceMode.Force);
     }
+    
+    private void OnEnable()
+    {
+        if (playerScore != null)
+            playerScore.OnChanged += OnScoreChanged;
+    }
+
+    private void OnDisable()
+    {
+        if (playerScore != null)
+            playerScore.OnChanged -= OnScoreChanged;
+    }
+
+    private void OnScoreChanged(int newScore)
+    {
+        Debug.Log("Новый счёт: " + newScore);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Collision!!!");
-        if (other.gameObject.CompareTag("trigger_destroy-pipe"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            playerScore.Add();
             Destroy(gameObject);
         }
     }
-
 
 }

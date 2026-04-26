@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody rb;
-
+    [SerializeField] private ScoreManager playerScore;
     [Header("Input Manager")]
     public InputManager inputManager;
 
@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        playerScore.Reset();
     }
 
     private void Update()
@@ -33,9 +34,17 @@ public class PlayerScript : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Прыгнул!");
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+        //Debug.Log("Collision!!!");
+        //if (other.gameObject.CompareTag("trigger_increase-score"))
+        //{
+            //playerScore.Add();
+        //}
+    //}
 
     private void OnDrawGizmosSelected()
     {
